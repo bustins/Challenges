@@ -1,3 +1,5 @@
+import Array "mo:base/Array"
+
 actor {
     //Challenge 1
     public func add(n : Nat, m : Nat) : async Nat {
@@ -64,8 +66,17 @@ actor {
         } else {
             return (false);
         }
-    }
+    };
     
     //challenge 7
-    public func
+   public func sum_of_array(array : [Nat]) : async Nat {
+        var sum : Nat = 0;
+        for (value in array.vals()) {
+            sum := sum + value;
+        };
+        return sum;
+    };
+
+    //challenge 8
+    
 }
