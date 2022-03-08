@@ -1,4 +1,7 @@
-import Array "mo:base/Array"
+import Array "mo:base/Array";
+import Nat "mo:base/Nat";
+import Char "mo:base/Char";
+import Iter "mo:base/Iter";
 
 actor {
     //Challenge 1
@@ -50,6 +53,7 @@ actor {
             return(false);
         }       
     };
+
     public func divide(n : Nat, m : Nat) : async Bool {
         let remainder = n % m;
         if(remainder == 0) {
@@ -78,5 +82,28 @@ actor {
     };
 
     //challenge 8
+    public func maximum(array : [Nat]) : async Nat {
+        if(array.size() == 0) return 0;
+        var maximum = array[0];
+        for (val in array.vals()){
+            if (val >= maximum) {
+                maximum := val;
+            };
+        };
+        return(maximum)
+    };
+
+    //challenge 9
+    public func remove_from_array(array : [Nat], n : Nat) : async [Nat] {
+        var new_array : [Nat] = [];
+        for (vals in array.vals()){
+            if(vals != n){
+                new_array := Array.append<Nat>(new_array, [vals]);
+            };
+        };
+        return(new_array);
+    };
+
+    //challenge 10
     
-}
+};
